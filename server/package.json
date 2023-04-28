@@ -5,7 +5,7 @@
   "main": "src/stream.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "ts-node-dev --respawn src/stream.ts"
+    "start": "ts-node-dev --respawn src/directory.ts"
   },
   "keywords": [],
   "author": "",
