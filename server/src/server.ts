@@ -1,5 +1,11 @@
-const os = require('os');
+import fs from 'fs';
 
-console.log(os.type(),os.version(),os.homedir());
+fs.readFile('./src/files/discografica.txt', 'utf-8',(err, data) => {
+  if (err) throw err;
+  console.log(data);
+});
 
-console.log('sup?');
+process.on('uncaughtException', err => {
+  console.error(`tremendo lio: ${err}`);
+  process.exit(1);
+});

@@ -6,3 +6,4 @@
 #### Fri, 4/28/23
 
 * 8:00am: start tutorial on building node js server from scratch
+-- learn about accessing the filesystem with nodejs!

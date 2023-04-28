@@ -26,7 +26,26 @@
 (add node dev server)
 * yarn add -D ts-node-dev
 * "start": "ts-node-dev --respawn file.ts"
-(add node types)
+(add node types. dont forget!!!)
 * yarn add -D @types/node
 
+```typescript
+import os from 'os';
+import path from 'path';
+
+console.log(os.type());
+console.log(os.version());
+console.log(os.homedir());
+
+console.log(__dirname);
+console.log(__filename);
+
+console.log(path.dirname(__filename));
+console.log(path.basename(__filename));
+console.log(path.extname(__filename));
+
+
+//object with root, dir, base, ext, name
+console.log(path.parse(__filename));
+```
 
