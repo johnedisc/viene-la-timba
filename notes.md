@@ -26,6 +26,8 @@
 (add node dev server)
 * yarn add -D ts-node-dev
 * "start": "ts-node-dev --respawn file.ts"
+(or use nodemon, another dev server)
+* yard add nodemon -G
 (add node types. dont forget!!!)
 * yarn add -D @types/node
 

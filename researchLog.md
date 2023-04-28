@@ -11,3 +11,4 @@
 * 1230: file stream setup in nodejs
 * 130: break
 * 230: continue on stream research
+* 320: work on setting up ts node project
