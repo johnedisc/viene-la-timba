@@ -3,14 +3,16 @@ import path from 'path';
 
 const fileOps = async () => {
   try {
-    const data = await fsPromises.readFile(path.join(__dirname, 'files', 'queBola.txt'), 'utf-8')
+    const data = await fsPromises.readFile(path.join(__dirname, 'files', 'primero.txt'), 'utf-8')
     console.log(data);
     await fsPromises.writeFile(path.join(__dirname, 'files', 'promiseWrite.txt'), data);
-    await fsPromises.appendFile(path.join(__dirname, 'files', 'promiseWrite.txt'), '\n\nalgo nuevo');
+    await fsPromises.appendFile(path.join(__dirname, 'files', 'promiseWrite.txt'), '\n\n2');
     await fsPromises.rename(path.join(__dirname, 'files', 'promiseWrite.txt'), path.join(__dirname, 'files', 'RewritePromiseWrite.txt'));
+    const newData = await fsPromises.readFile(path.join(__dirname, 'files', 'RewritePromiseWrite.txt'), 'utf-8');
+    console.log(newData);
 
   } catch (err) {
-    console.error(err);
+    console.error(`hiciste error. que pena, socio ${err}`);
   }
 }
 
