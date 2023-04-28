@@ -9,4 +9,5 @@
 * make api calls from that front end
 * use vite and yarn?
 * testing?
+* space background? [generated with js?](https://www.siteinspire.com/websites/6430-clement-brichon)
 
