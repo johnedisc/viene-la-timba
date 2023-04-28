@@ -7,4 +7,5 @@
 
 * 8:00am: start tutorial on building node js server from scratch
 -- learn about accessing the filesystem with nodejs!
-* 1030: learn scout promises in nodejs
+* 1030: learn about promises in nodejs
+* 1230: file stream setup in nodejs
