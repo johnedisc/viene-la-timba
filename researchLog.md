@@ -9,3 +9,5 @@
 -- learn about accessing the filesystem with nodejs!
 * 1030: learn about promises in nodejs
 * 1230: file stream setup in nodejs
+* 130: break
+* 230: continue on stream research
