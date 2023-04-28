@@ -33,4 +33,4 @@ let minutes = date_now.getMinutes();
 let seconds = date_now.getSeconds();
 
 console.log(`its ${hours}:${minutes}:${seconds} on ${month + 1}/${date}/${year}`);
-console.log(uuid);
+console.log(uuid());

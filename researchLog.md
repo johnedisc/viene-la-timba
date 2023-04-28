@@ -12,3 +12,5 @@
 * 130: break
 * 230: continue on stream research
 * 320: work on setting up ts node project
+* 420: left off at (events log)[https://www.youtube.com/watch?v=2vaTy4dkbJM&list=PL0Zuz27SZ-6PFkIxaJ6Xx_X46avTM1aYw&index=4] for the server
+* 420: make proposal
