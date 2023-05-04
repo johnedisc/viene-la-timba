@@ -5,8 +5,8 @@
   "main": "src/stream.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "ts-node src/directory.ts",
-    "dev": "nodemon src/directory.ts"
+    "start": "ts-node src/logEvents.ts",
+    "dev": "nodemon src/logEvent.ts"
   },
   "keywords": [],
   "author": "",
