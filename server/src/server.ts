@@ -15,6 +15,31 @@ const PORT = process.env.PORT || 3500;
 
 const server = http.createServer((request, response) => {
   console.log(request.url, request.method);
+
+  const extension: string = path.extname(request.url);
+
+  let contentType: any;
+
+  switch (extension) {
+    case '.css':
+      contentType = 'text/css';
+      break;
+    case '.json':
+      contentType = 'application/json';
+      break;
+    case '.jpg':
+      contentType = 'text/jpeg';
+      break;
+    case '.png':
+      contentType = 'text/png';
+      break;
+    case '.txt':
+      contentType = 'text/plain';
+      break;
+    case '.html':
+      contentType = 'text/html';
+      break;
+  }
   
 });
 
