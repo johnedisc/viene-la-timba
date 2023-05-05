@@ -15,6 +15,7 @@ const PORT = process.env.PORT || 3500;
 
 const server = http.createServer((request, response) => {
   console.log(request.url, request.method);
+  
 });
 
 server.listen(PORT, () => console.log(`server running on port: ${PORT}`));
