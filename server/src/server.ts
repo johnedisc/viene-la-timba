@@ -14,8 +14,11 @@ const PORT = process.env.PORT || 3500;
 
 const serveFile = async (filePath: string, contentType: string, response: ServerResponse) => {
   try {
-    const rawData: string = await fsPromises.readFile(filePath, 'utf-8');
-    const data: string = contentType === 'application/json'
+    const rawData: any = await fsPromises.readFile(
+      filePath, 
+      !contentType.includes('image') ? 'utf-8' : undefined
+    );
+    const data: any = contentType === 'application/json'
       ? JSON.parse(rawData) : rawData;
     response.writeHead(200, {'Content-Type': contentType});
     response.end(
@@ -32,10 +35,13 @@ const server = http.createServer((request, response) => {
   if (request.url && request.method) {
     console.log(request.url, request.method);
 
+    //what extension does client ask for?
     const extension: string = path.extname(request.url);
 
-    let contentType: any;
+    // what is content type base on extension
+    let contentType: string;
 
+    // assign the content per extension
     switch (extension) {
       case '.css':
         contentType = 'text/css';
@@ -58,6 +64,7 @@ const server = http.createServer((request, response) => {
 
     console.log(extension);
     
+    // set file path based on request. find path to that file.
     let filePath =
       contentType === 'text/html' && request.url === '/'
         ? path.join(__dirname, 'views', `index.html`)
@@ -70,6 +77,7 @@ const server = http.createServer((request, response) => {
     // makes .html extension not required in the browser
     if (!extension && request.url.slice(-1) !== '/') filePath += '.html';
 
+    // boolean to see if file exists
     const fileExists = fs.existsSync(filePath);
 
     if (fileExists) {
