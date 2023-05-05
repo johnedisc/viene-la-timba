@@ -1,4 +1,4 @@
-import http, { request } from "http";
+import http, { ServerResponse, request } from "http";
 import path from "path";
 import fs from "fs";
 import fsPromises from "fs/promises";
@@ -12,6 +12,17 @@ const timbaEmitter = new Emitter();
 
 const PORT = process.env.PORT || 3500;
 
+const serveFile = async (filePath: string, contentType: string, response: ServerResponse) => {
+  try {
+    const data: string = await fsPromises.readFile(filePath, 'utf-8');
+    response.writeHead(200, {'Content-Type': contentType});
+    response.end(data);
+  } catch (error) {
+    console.log(error);
+    response.statusCode = 500;
+    response.end();
+  }
+}
 
 const server = http.createServer((request, response) => {
   if (request.url && request.method) {
@@ -47,7 +58,33 @@ const server = http.createServer((request, response) => {
         : contentType === 'text/html' && request.url.slice(-1) === '/'
           ? path.join(__dirname, 'views', request.url, `index.html`)
           : contentType === 'text/html'
-            ? path.join(__dirname, 'views', index.html)
+            ? path.join(__dirname, 'views', request.url)
+            : path.join(__dirname, request.url)
+
+    // makes .html extension not required in the browser
+    if (!extension && request.url.slice(-1) !== '/') filePath += '.html';
+
+    const fileExists = fs.existsSync(filePath);
+
+    if (fileExists) {
+      //serve file
+      serveFile(filePath, contentType, response);
+    } else {
+      // 301 redirect
+      switch(path.parse(filePath).base) {
+        case 'old-page.html':
+          response.writeHead(301, {'Location': '/new.html'});
+          response.end();
+          break;
+        case 'www-page.html':
+          response.writeHead(301, {'Location': '/'});
+          response.end();
+          break;
+        default:
+          // serve 404
+          serveFile(path.join(__dirname, 'views', '404.html'), 'text/html', response);
+      }
+    }
 
   }
 });
