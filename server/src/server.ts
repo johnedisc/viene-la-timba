@@ -50,10 +50,10 @@ const server = http.createServer((request, response) => {
         contentType = 'application/json';
         break;
       case '.jpg':
-        contentType = 'text/jpeg';
+        contentType = 'image/jpeg';
         break;
       case '.png':
-        contentType = 'text/png';
+        contentType = 'image/png';
         break;
       case '.txt':
         contentType = 'text/plain';
