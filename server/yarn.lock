@@ -1200,21 +1200,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"server@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "server@workspace:."
-  dependencies:
-    "@types/node": ^18.16.2
-    "@types/uuid": ^9.0.1
-    date-fns: ^2.30.0
-    nodemon: ^2.0.22
-    ts-node: ^10.9.1
-    ts-node-dev: ^2.0.0
-    typescript: ^5.0.4
-    uuid: ^9.0.0
-  languageName: unknown
-  linkType: soft
-
 "set-blocking@npm:^2.0.0":
   version: 2.0.0
   resolution: "set-blocking@npm:2.0.0"
@@ -1538,6 +1523,21 @@ __metadata:
   checksum: 78089ad549e21bcdbfca10c08850022b22024cdcc2da9b168bcf5a73a6ed7bf01a9cebb9eac28e03cd23a684d81e0502797e88f3ccd27a32aeab1cfc44c39da0
   languageName: node
   linkType: hard
+
+"vieneLaTimbaServer@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "vieneLaTimbaServer@workspace:."
+  dependencies:
+    "@types/node": ^18.16.2
+    "@types/uuid": ^9.0.1
+    date-fns: ^2.30.0
+    nodemon: ^2.0.22
+    ts-node: ^10.9.1
+    ts-node-dev: ^2.0.0
+    typescript: ^5.0.4
+    uuid: ^9.0.0
+  languageName: unknown
+  linkType: soft
 
 "which@npm:^2.0.2":
   version: 2.0.2
