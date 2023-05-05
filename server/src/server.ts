@@ -14,9 +14,13 @@ const PORT = process.env.PORT || 3500;
 
 const serveFile = async (filePath: string, contentType: string, response: ServerResponse) => {
   try {
-    const data: string = await fsPromises.readFile(filePath, 'utf-8');
+    const rawData: string = await fsPromises.readFile(filePath, 'utf-8');
+    const data: string = contentType === 'application/json'
+      ? JSON.parse(rawData) : rawData;
     response.writeHead(200, {'Content-Type': contentType});
-    response.end(data);
+    response.end(
+      contentType === 'application/json' ? JSON.stringify(data) : data
+    );
   } catch (error) {
     console.log(error);
     response.statusCode = 500;
@@ -51,6 +55,8 @@ const server = http.createServer((request, response) => {
       default:
         contentType = 'text/html';
     }
+
+    console.log(extension);
     
     let filePath =
       contentType === 'text/html' && request.url === '/'
