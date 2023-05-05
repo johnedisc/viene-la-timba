@@ -1,0 +1,40 @@
+function whatIsInAName(collection, source) {
+  const arr = [];
+  
+  // Only change code below this line
+  let sourced = [];
+  for (let elem in source) {
+    sourced.push(elem + source[elem]);
+  }
+  
+  console.log(sourced)
+
+  for (let i=0;i<collection.length;i++) {
+    let collect = '';
+    for (let elem in collection[i]) {
+      collect += elem + collection[i][elem];
+      console.log(collect) 
+    }
+    let counter = 0;
+    for (let j=0;j<sourced.length;j++) {
+      if (collect.includes(sourced[j])) {
+        counter++;
+      }
+    }
+    if (counter == sourced.length) {
+      arr.push(collection[i]);
+    }
+    
+    
+
+    
+
+  }
+  
+  
+  console.log(arr)
+  // Only change code above this line
+  return arr;
+}
+
+whatIsInAName([{ "apple": 1, "bat": 2 }, { "apple": 1 }, { "apple": 1, "bat": 2, "cookie": 2 }], { "apple": 1, "cookie": 2 });

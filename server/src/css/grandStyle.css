@@ -1,0 +1,76 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root {
+  --button-padding: .4em;
+  --box-padding: 2em;
+  --button-background: #CDD9E8;
+  --box-background: #878C90;
+}
+
+.flexed-down {
+  display: flex;
+  flex-direction: column;
+}
+
+.flexed-row {
+  display: flex;
+  flex-direction: row;
+}
+
+html,
+body {
+  background: #191925;
+  color: #FE2B5B;
+  font-family: 'Rubik', sans-serif;
+  padding: 0;
+  margin: 0;
+  height: 100vh;
+}
+
+.container {
+  height: 100vh;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--box-padding);
+}
+
+a {
+  background: inherit;
+  color: inherit;
+  font-family: inherit;
+  text-decoration: none;
+}
+
+input,
+textarea,
+button {
+  padding: var(--button-padding);
+  background: inherit;
+  color: inherit;
+  font-family: inherit;
+  border-radius: 4px;
+  border: grey 2px solid;
+  width: 15vw;
+  min-width: 160px;
+  background: var(--button-background);
+}
+
+button {
+  width: 120px;
+  background: var(--button-background);
+}
+
+#help-form {
+  background: var(--box-background);
+  border: grey 2px solid;
+  border-radius: 4px;
+  justify-content: space-around;
+  align-items: center;
+  min-width: 200px;
+  padding: calc(var(--box-padding)/2);
+}
+
+#help-form > * {
+  margin: calc(var(--button-padding));
+}
