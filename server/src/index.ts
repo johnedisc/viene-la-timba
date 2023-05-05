@@ -7,7 +7,7 @@ class TimbaEmitter extends EventEmitter {};
 // initialize object
 const timbaEmitter = new TimbaEmitter();
 
-// listener
+// listener for log event
 timbaEmitter.on('log', (msg) => logEvents(msg));
 
 setTimeout(() => {
