@@ -14,33 +14,42 @@ const PORT = process.env.PORT || 3500;
 
 
 const server = http.createServer((request, response) => {
-  console.log(request.url, request.method);
+  if (request.url && request.method) {
+    console.log(request.url, request.method);
 
-  const extension: string = path.extname(request.url);
+    const extension: string = path.extname(request.url);
 
-  let contentType: any;
+    let contentType: any;
 
-  switch (extension) {
-    case '.css':
-      contentType = 'text/css';
-      break;
-    case '.json':
-      contentType = 'application/json';
-      break;
-    case '.jpg':
-      contentType = 'text/jpeg';
-      break;
-    case '.png':
-      contentType = 'text/png';
-      break;
-    case '.txt':
-      contentType = 'text/plain';
-      break;
-    case '.html':
-      contentType = 'text/html';
-      break;
+    switch (extension) {
+      case '.css':
+        contentType = 'text/css';
+        break;
+      case '.json':
+        contentType = 'application/json';
+        break;
+      case '.jpg':
+        contentType = 'text/jpeg';
+        break;
+      case '.png':
+        contentType = 'text/png';
+        break;
+      case '.txt':
+        contentType = 'text/plain';
+        break;
+      default:
+        contentType = 'text/html';
+    }
+    
+    let filePath =
+      contentType === 'text/html' && request.url === '/'
+        ? path.join(__dirname, 'views', `index.html`)
+        : contentType === 'text/html' && request.url.slice(-1) === '/'
+          ? path.join(__dirname, 'views', request.url, `index.html`)
+          : contentType === 'text/html'
+            ? path.join(__dirname, 'views', index.html)
+
   }
-  
 });
 
 server.listen(PORT, () => console.log(`server running on port: ${PORT}`));
