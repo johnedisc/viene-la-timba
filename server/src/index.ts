@@ -1,6 +1,16 @@
-import { format } from 'date-fns';
-import { v4 } from 'uuid';
+import { logEvents } from "./logEvents";
+import EventEmitter from "events";
 
-console.log(format(new Date(), 'yyyyMMdd\tHH:mm:ss'));
+class TimbaEmitter extends EventEmitter {};
 
-console.log(v4());
+
+// initialize object
+const timbaEmitter = new TimbaEmitter();
+
+// listener
+timbaEmitter.on('log', (msg) => logEvents(msg));
+
+setTimeout(() => {
+  // emit event
+  timbaEmitter.emit('log', 'log event emitted');
+}, 3000)
