@@ -36,7 +36,7 @@ const serveFile = async (filePath: string, contentType: string, response: Server
 const server = http.createServer((request, response) => {
   if (request.url && request.method) {
     console.log(request.url, request.method);
-    timbaEmitter.emit('log', `${request.url}\t\t${request.method}`, 'requestLog.txt');
+    timbaEmitter.emit('log', `${request.url}\t${request.method}`, 'requestLog.txt');
 
 
     //what extension does client ask for?
