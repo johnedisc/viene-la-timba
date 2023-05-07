@@ -16,7 +16,7 @@ _a web tool to notify cuban music fans when an event is headed to their area_
 ### technologies
 
 * typescript/node.js with minimal frameworks
-* database (not sure yet: mySql, noSql)
+* MySQL will hold user information
 
 ### concept
 
