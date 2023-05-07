@@ -9,7 +9,8 @@ import EventEmitter from "events";
 class Emitter extends EventEmitter {};
 // initialize object
 const timbaEmitter = new Emitter();
-
+//listener for log event
+timbaEmitter.on('log', (msg, fileName) => logEvents(msg, fileName));
 const PORT = process.env.PORT || 3500;
 
 const serveFile = async (filePath: string, contentType: string, response: ServerResponse) => {
@@ -24,8 +25,9 @@ const serveFile = async (filePath: string, contentType: string, response: Server
     response.end(
       contentType === 'application/json' ? JSON.stringify(data) : data
     );
-  } catch (error) {
+  } catch (error: any) {
     console.log(error);
+    timbaEmitter.emit('log', `${error.name}\t${error.message}`, 'errorLog.txt');
     response.statusCode = 500;
     response.end();
   }
@@ -34,6 +36,8 @@ const serveFile = async (filePath: string, contentType: string, response: Server
 const server = http.createServer((request, response) => {
   if (request.url && request.method) {
     console.log(request.url, request.method);
+    timbaEmitter.emit('log', `${request.url}\t\t${request.method}`, 'requestLog.txt');
+
 
     //what extension does client ask for?
     const extension: string = path.extname(request.url);
@@ -104,23 +108,3 @@ const server = http.createServer((request, response) => {
 });
 
 server.listen(PORT, () => console.log(`server running on port: ${PORT}`));
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// listener for log event
-//timbaEmitter.on('log', (msg) => logEvents(msg));
-//
-//  timbaEmitter.emit('log', 'log event emitted');
