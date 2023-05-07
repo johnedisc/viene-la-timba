@@ -22,3 +22,4 @@
 #### Sun, 5/7/23
 
 * 900am: continue example proj research
+* 1030am: study authentication theory a bit [here](https://www.youtube.com/watch?v=kmAzuH2Lzug)
