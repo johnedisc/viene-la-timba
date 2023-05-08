@@ -11,6 +11,7 @@
 * use vite and yarn?
 * testing?
 * space background? [generated with js?](https://www.siteinspire.com/websites/6430-clement-brichon)
+* all of this makes me want to learn about nuts and bolts of http/tcp and build a server with a low-level language like [c](https://bruinsslot.jp/post/simple-http-webserver-in-c/)
 
 
 ### Set up typescript for node with simple project
