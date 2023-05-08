@@ -22,4 +22,6 @@
 #### Sun, 5/7/23
 
 * 900am: continue example proj research
-* 1030am: study authentication theory a bit [here](https://www.youtube.com/watch?v=kmAzuH2Lzug)
+* 1030am-12pm: study authentication theory a bit [here](https://www.youtube.com/watch?v=kmAzuH2Lzug)
+* 400pm-5: spin up an aws instance, grab a domain name
+
