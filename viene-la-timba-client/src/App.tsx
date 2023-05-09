@@ -1,4 +1,4 @@
-import UpcomingGigs from './components/UpcomingGigs';
+import { UpcomingGigs } from './components/UpcomingGigs';
 
 function App() {
 
@@ -11,4 +11,3 @@ function App() {
 
 export default App
 
-//  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
