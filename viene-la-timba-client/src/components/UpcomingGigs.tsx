@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react';
+import { v4 } from 'uuid';
+import { Concerts } from '../interfaces';
 
 export const UpcomingGigs = () => {
   const [error, setError] = useState(null);
@@ -44,8 +46,8 @@ export const UpcomingGigs = () => {
     return (
       <>
         <h2>upcoming gigs</h2>
-        {gigs.map((gig: any, index) =>
-          <div key={index} style={divStyle}>
+        {gigs.map((gig: Concerts) =>
+          <div key={v4()} style={divStyle}>
             <h3>{gig.name}</h3>
             <h5>{gig.dates.start.localDate}</h5>
             <h5>{gig["_embedded"].venues[0].name}</h5>

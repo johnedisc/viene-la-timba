@@ -1,10 +1,10 @@
-import { UpcomingGigs } from './components/UpcomingGigs';
+import { Counter } from './components/Counter';
 
 function App() {
 
   return (
     <>
-      <UpcomingGigs />
+      <Counter />
     </>
   )
 }
