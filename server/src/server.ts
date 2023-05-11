@@ -10,8 +10,13 @@ app.get("^/$|/index(.html)?", (req, res) => {
   res.sendFile(path.join(__dirname, "views", "index.html"));
 })
 
-app.get("/new-page.html", (req, res) => {
-  res.sendFile(path.join(__dirname, "views", "index.html"));
+// 6.50.41
+app.get("/new(.html)?", (req, res) => {
+  res.sendFile(path.join(__dirname, "views", "new.html"));
+})
+
+app.get("/old(.html)?", (req, res) => {
+  res.redirect("new.html");
 })
 
 app.listen(PORT, () => console.log(`server running on port: ${PORT}`));
