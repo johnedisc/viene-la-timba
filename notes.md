@@ -1,4 +1,10 @@
-# 'si no viene la guagua, me voy de pie' notes
+# 'viene la timba' notes
+
+## updates
+* the process of finding a suitable api is not going well, so I am switching to making up some fake data for the moment to not have to switch ideas mid-process
+* still learning about node.js.
+* still need to: set up database and find a way to send email notifications
+* after that: sign in and jwt from server
 
 ### i want to do the following:
 * get a domain name
