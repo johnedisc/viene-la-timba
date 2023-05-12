@@ -10,7 +10,7 @@ app.use((req, res, next) => {
   logEvents(`${req.method}\t${req.headers.origin}\t${req.url}`, 'requestLog.txt');
   console.log(`${req.method} ${req.path}`);
   next();
-});
+);
 
 // built-in middle ware to hand urlencoded data (form data)
 // content-type: application/x-www-form-urlencoded
