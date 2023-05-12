@@ -17,3 +17,11 @@ export const logEvents = async (message: string, logName: string): Promise<void>
     console.error("the append didn't work",error);
   }
 }
+
+export const 
+
+(req, res, next) => {
+  logEvents(`${req.method}\t${req.headers.origin}\t${req.url}`, 'requestLog.txt');
+  console.log(`${req.method} ${req.path}`);
+  next();
+}

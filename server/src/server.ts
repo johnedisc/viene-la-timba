@@ -1,16 +1,12 @@
 import express from "express";
 import path from "path";
-import { logEvents } from "./middleware/logEvents";
+import { logger } from "./middleware/logEvents";
 
 const app = express();
 const PORT = process.env.PORT || 3500;
 
 // custom middleware for logger
-app.use((req, res, next) => {
-  logEvents(`${req.method}\t${req.headers.origin}\t${req.url}`, 'requestLog.txt');
-  console.log(`${req.method} ${req.path}`);
-  next();
-);
+app.use(logger);
 
 // built-in middle ware to hand urlencoded data (form data)
 // content-type: application/x-www-form-urlencoded
